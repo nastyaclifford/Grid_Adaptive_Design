@@ -5,9 +5,9 @@
     height: 40vh;
     width: 50vw;
     grid-template-areas: 
-    "header header"
-    "main aside"
-    "footer footer";
+    "header"
+    "main"
+    "footer";
     font-size: 0.7em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
@@ -18,10 +18,15 @@
     text-align: center;
     padding: 2%;
 }
-.main{
+.middleblock{
     grid-area: main;
     background: rgb(239, 239, 193); 
     text-align: center;  
+    display:grid;
+    grid-template-columns: 70% 30%;
+}
+.middleblock__main{
+    grid-column: 1/2;
     padding: 4%;
 }
 .main__sections{
@@ -40,10 +45,10 @@
     grid-column: 1/3; 
     width: 90%;
 }
-.aside{
-    grid-area: aside;
-    text-align: center;
+.middleblock__sideblock{
+    grid-column: 2/3;
     padding: 4%;
+    text-align: center;
     background: rgb(165, 203, 165);
 }
 .footer{
@@ -67,8 +72,8 @@
         grid-template-columns: 60% 20% 20%;
         grid-template-rows: 15% 1fr;
         grid-template-areas: 
-        "header header header"
-        "main aside footer";
+        "header header"
+        "main footer";
     }
     .footer{
         grid-template-rows: 20% 20% 20% 20% ;
@@ -80,12 +85,28 @@
 
 @media screen and (max-width: 767px){
     .container{
-        grid-template-columns: 100%;
-        grid-template-rows: 15% 40% 25% 20%;
-        grid-template-areas: 
-        "header"
-        "main"
-        "aside"
-        "footer";
+            grid-template-columns: 60% 20% 20%;
+            grid-template-rows: 15% 1fr;
+            grid-template-areas: 
+            "header header"
+            "main footer";
+        }
+        .footer{
+            grid-template-rows: 20% 20% 20% 20% ;
+            grid-template-columns: 100%;
+            align-content: space-evenly;
+            align-items: center;
+        }
+        .main__sections{
+            grid-template-rows: 30% 30% 30%;
+        }
+        .sections__article{
+            grid-row: 1/2;
+        }
+        .middle{
+            grid-row: 2/3;
+        }
+        .bottom{ 
+            grid-row: 3/4;
+        }
     }
-}
